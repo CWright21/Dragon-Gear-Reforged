@@ -66,6 +66,19 @@ public class CustomTraitsProvider extends TraitsProviderBase{
                 .withGearTypeCondition(GearTypes.ARROW)
         );
 		
+		ret.add(TraitBuilder.of(Const.Traits.BLAZING_BLOOD, 1)
+                .withGearTypeCondition(GearTypes.WEAPON, GearTypes.NONE)
+        );
+		
+		ret.add(TraitBuilder.of(Const.Traits.FREEZING_BLOOD, 1)
+                .withGearTypeCondition(GearTypes.WEAPON, GearTypes.NONE)
+        );
+		ret.add(TraitBuilder.of(Const.Traits.VOLTAIC_BLOOD, 1)
+                .withGearTypeCondition(GearTypes.WEAPON, GearTypes.NONE)
+        );
+		ret.add(TraitBuilder.of(Const.Traits.LIFESTEAL, 5)
+                .withGearTypeCondition(GearTypes.ARROW, GearTypes.SPEAR)
+        );
 		
 		return ret;
 	}

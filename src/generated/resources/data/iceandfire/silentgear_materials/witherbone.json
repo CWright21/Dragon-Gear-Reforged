@@ -8,12 +8,10 @@
       "advanced"
     ],
     "gear_type_blacklist": [],
-    "ingredient": [],
-    "part_substitutes": {
-      "silentgear:rod": {
-        "item": "iceandfire:witherbone"
-      }
-    }
+    "ingredient": {
+      "item": "iceandfire:witherbone"
+    },
+    "part_substitutes": {}
   },
   "display": {
     "color": "#FF0E0C0F",

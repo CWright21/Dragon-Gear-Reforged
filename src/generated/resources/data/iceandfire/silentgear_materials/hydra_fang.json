@@ -5,31 +5,31 @@
     "can_salvage": true,
     "categories": [
       "organic",
-      "advanced"
+      "endgame"
     ],
     "gear_type_blacklist": [],
     "ingredient": {
-      "item": "iceandfire:ice_dragon_blood"
+      "item": "iceandfire:hydra_fang"
     },
     "part_substitutes": {}
   },
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Ice Dragon Blood",
+    "name": "Hydra Fang",
     "name_prefix": ""
   },
   "properties": {
-    "silentgear:coating": {
-      "magic_damage": {
-        "operation": "ADD",
-        "value": 8.0
-      },
+    "silentgear:main": {
+      "draw_speed/arrow": 1.0,
+      "projectile_accuracy/arrow": 1.0,
+      "projectile_speed/arrow": 1.0,
+      "ranged_damage/arrow": 1.0,
       "traits": [
         {
           "conditions": [],
           "level": 1,
-          "trait": "dragongear:freezing_blood"
+          "trait": "silentgear:venom"
         }
       ]
     }

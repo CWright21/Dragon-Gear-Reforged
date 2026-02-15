@@ -9,14 +9,14 @@
     ],
     "gear_type_blacklist": [],
     "ingredient": {
-      "item": "iceandfire:dragonscales_silver"
+      "item": "iceandfire:dragonscales_red"
     },
     "part_substitutes": {}
   },
   "display": {
-    "color": "#FFCE4646",
+    "color": "#FFAA0000",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Ice Dragon Scale",
+    "name": "redDragon Scale",
     "name_prefix": ""
   },
   "properties": {
@@ -28,10 +28,17 @@
       "armor/leggings": 7.0,
       "armor_durability": 4.0,
       "armor_toughness": 2.0,
+      "attack_damage": 4.0,
+      "attack_speed": 0.1,
       "charging_value": 0.9,
+      "draw_speed": 0.0,
       "durability": 500.0,
       "enchantment_value": 12.0,
       "magic_armor": 15.0,
+      "magic_damage": 1.0,
+      "projectile_accuracy": 1.1,
+      "projectile_speed": 0.9,
+      "ranged_damage": 1.1,
       "rarity": 8.0,
       "traits": [
         {
@@ -43,6 +50,11 @@
           "conditions": [],
           "level": 1,
           "trait": "dragongear:dragon_protection"
+        },
+        {
+          "conditions": [],
+          "level": 1,
+          "trait": "silentgear:fireproof"
         }
       ]
     }

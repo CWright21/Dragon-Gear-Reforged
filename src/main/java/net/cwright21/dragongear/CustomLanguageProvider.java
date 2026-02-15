@@ -6,7 +6,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.silentchaos512.gear.api.util.DataResource;
 
 public class CustomLanguageProvider extends LanguageProvider {
-
+	
     public CustomLanguageProvider(PackOutput output) {
         super(
             // Provided by the `GatherDataEvent.Client`.
@@ -29,4 +29,5 @@ public class CustomLanguageProvider extends LanguageProvider {
     private String getPath(DataResource<?> dataResource, String prefix) {
     	return prefix + "." + dataResource.getId().getNamespace() + "." + dataResource.getId().getPath();
     }
+    
 }

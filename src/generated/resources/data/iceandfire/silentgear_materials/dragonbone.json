@@ -21,6 +21,11 @@
   },
   "properties": {
     "silentgear:main": {
+      "armor": 14.0,
+      "armor/boots": 3.0,
+      "armor/chestplate": 4.0,
+      "armor/helmet": 3.0,
+      "armor/leggings": 4.0,
       "armor_durability": 0.0,
       "attack_damage": 4.0,
       "attack_speed": 0.1,
@@ -29,8 +34,9 @@
       "durability": 1660.0,
       "enchantment_value": 10.0,
       "harvest_speed": 9.0,
+      "magic_armor": 5.0,
       "magic_damage": 1.0,
-      "projectile_accuracy": 1.0,
+      "projectile_accuracy": 1.1,
       "projectile_speed": 0.9,
       "ranged_damage": 1.1,
       "rarity": 8.0,

@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "silentgear:or",
+      "values": [
+        {
+          "type": "silentgear:gear_type",
+          "gear_type": "silentgear:arrow"
+        },
+        {
+          "type": "silentgear:gear_type",
+          "gear_type": "silentgear:spear"
+        }
+      ]
+    }
+  ],
+  "description": {
+    "translate": "trait.dragongear.lifesteal.desc"
+  },
+  "effects": [],
+  "max_level": 5,
+  "name": {
+    "translate": "trait.dragongear.lifesteal"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "silentgear:or",
+      "values": [
+        {
+          "type": "silentgear:gear_type",
+          "gear_type": "silentgear:weapon"
+        },
+        {
+          "type": "silentgear:gear_type",
+          "gear_type": "silentgear:none"
+        }
+      ]
+    }
+  ],
+  "description": {
+    "translate": "trait.dragongear.blazing_blood.desc"
+  },
+  "effects": [],
+  "max_level": 1,
+  "name": {
+    "translate": "trait.dragongear.blazing_blood"
+  }
+}

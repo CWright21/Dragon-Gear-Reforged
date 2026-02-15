@@ -24,6 +24,11 @@ import net.silentchaos512.gear.setup.gear.PartTypes;
 import net.silentchaos512.gear.util.Const;
 import net.silentchaos512.lib.util.Color;
 import com.mojang.brigadier.Message;
+
+import dev.architectury.registry.registries.RegistrySupplier;
+
+import com.iafenvoy.iceandfire.data.DragonColor;
+import com.iafenvoy.iceandfire.data.DragonType;
 import com.iafenvoy.iceandfire.data.SeaSerpent;
 import com.iafenvoy.iceandfire.data.TrollType;
 import com.iafenvoy.iceandfire.item.ItemSeaSerpentScales;
@@ -54,6 +59,8 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
 		addDeathWormChitin(ret);
 		addMyrmexChitin(ret);
 		addStymphalian(ret);
+		addPixieWing(ret);
+		addFangs(ret);
 		
         return ret;
 	}
@@ -120,20 +127,15 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .mainStatsCommon(1660, 0, 10, 8, 1f)
                 .mainStatsHarvest(9)
                 .mainStatsMelee(4, 1, 0.1f)
-                .mainStatsRanged(1.1f, 0f, 0.9f, 1f)
+                .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                .mainStatsArmor(3, 4, 4, 3, 0, 5)
                 .trait(PartTypes.MAIN, Const.Traits.CHIPPING, 2)
                 //rod
                 .trait(PartTypes.ROD, Const.Traits.FLEXIBLE, 2)
         );
         // Witherbone
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.WITHER_BONE.getMaterial())
-                .crafting(new MaterialCraftingData(
-                        Ingredient.of(),
-                        List.of(MaterialCategories.ORGANIC, MaterialCategories.ADVANCED),
-                        List.of(),
-                        Map.of(PartTypes.ROD.get(), Ingredient.of(IafItems.WITHERBONE.get())),
-                        true
-                ))
+                .crafting(IafItems.WITHERBONE.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED)
                 .display(getDisplayName("Witherbone"),0x0e0c0f, TextureType.LOW_CONTRAST)
                 //rod
                 .stat(PartTypes.ROD, GearProperties.ATTACK_DAMAGE, 0.2f, NumberProperty.Operation.MULTIPLY_TOTAL)
@@ -153,8 +155,10 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .mainStatsHarvest(12)
                 .mainStatsArmor(7, 12, 9, 6, 6, 10)
                 .mainStatsMelee(20, 12, 0.1f)
+                .mainStatsRanged(1.30f, -0.2f, 0.8f, 0.9f)
                 .trait(PartTypes.MAIN, Const.Traits.HEAVY, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 2)
+                .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.VOLTAIC_BLOOD, 1)
 
         );
         
@@ -167,9 +171,10 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .mainStatsHarvest(12)
                 .mainStatsArmor(7, 12, 9, 6, 6, 10)
                 .mainStatsMelee(24, 8, 0.1f)
+                .mainStatsRanged(1.30f, -0.2f, 0.8f, 0.9f)
                 .trait(PartTypes.MAIN, Const.Traits.HEAVY, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 2)
-                //TODO: add ice damage trait
+                .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.FREEZING_BLOOD, 1)
 
         );
         
@@ -182,71 +187,63 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .mainStatsHarvest(12)
                 .mainStatsArmor(7, 12, 9, 6, 6, 10)
                 .mainStatsMelee(24, 8, 0.1f)
+                .mainStatsRanged(1.30f, -0.2f, 0.8f, 0.9f)
                 .trait(PartTypes.MAIN, Const.Traits.HEAVY, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 2)
-                //TODO: add fire damage trait
+                .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.BLAZING_BLOOD, 1)
 
         );
         
     }
     
     private void addDragonScales(Collection<MaterialBuilder<?>> ret) {
-    	Map<IceAndFireMaterials, Item> lightningDragonScales = Map.of(
-    			IceAndFireMaterials.DRAGONSCALES_ELECTRICBLUE, IafItems.DRAGONSCALES_ELECTRIC.get(),
-    			IceAndFireMaterials.DRAGONSCALES_COPPER, IafItems.DRAGONSCALES_COPPER.get(),
-    			IceAndFireMaterials.DRAGONSCALES_AMETHYST, IafItems.DRAGONSCALES_AMETHYST.get(),
-    			IceAndFireMaterials.DRAGONSCALES_BLACK, IafItems.DRAGONSCALES_BLACK.get()
-    			);
+    	List<DragonColor> allDragons = DragonColor.values();
     	
-    	for(IceAndFireMaterials material : lightningDragonScales.keySet()) {
-    		ret.add(MaterialBuilder.simple(material.getMaterial())
-                    .crafting(lightningDragonScales.get(material), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                    .display(getDisplayName("Lightning Dragon Scale"),0xce4646, TextureType.LOW_CONTRAST)
-                    //main
-                    .mainStatsCommon(500, 4, 12, 8, 0.9f)
-                    .mainStatsArmor(5, 9, 7, 5, 1.5f, 20)
-                    .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
-                    .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
-            );
-    	}
-    	
-    	Map<IceAndFireMaterials, Item> iceDragonScales = Map.of(
-    			IceAndFireMaterials.DRAGONSCALES_BLUE, IafItems.DRAGONSCALES_BLUE.get(),
-    			IceAndFireMaterials.DRAGONSCALES_WHITE, IafItems.DRAGONSCALES_WHITE.get(),
-    			IceAndFireMaterials.DRAGONSCALES_SAPPHIRE, IafItems.DRAGONSCALES_SAPPHIRE.get(),
-    			IceAndFireMaterials.DRAGONSCALES_SILVER, IafItems.DRAGONSCALES_SILVER.get()
-    			);
-    	
-    	for(IceAndFireMaterials material : iceDragonScales.keySet()) {
-    		ret.add(MaterialBuilder.simple(material.getMaterial())
-                    .crafting(iceDragonScales.get(material), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                    .display(getDisplayName("Ice Dragon Scale"),0xce4646, TextureType.LOW_CONTRAST)
-                    //main
-                    .mainStatsCommon(500, 4, 12, 8, 0.9f)
-                    .mainStatsArmor(5, 9, 7, 5, 2, 15)
-                    .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
-                    .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
-            );
+    	for(DragonColor dragon : allDragons) {
+    		if(dragon.dragonType() == DragonType.LIGHTNING) {
+        		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
+                        .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        //main
+                        .mainStatsCommon(500, 4, 12, 8, 0.9f)
+                        .mainStatsArmor(5, 9, 7, 5, 1.5f, 20)
+                        .mainStatsMelee(4, 1, 0.1f)
+                        .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                        .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
+                        .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
+                        .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+                );
+    		}
+    		else if(dragon.dragonType() == DragonType.FIRE) {
+        		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
+                        .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        //main
+                        .mainStatsCommon(500, 4, 12, 8, 0.9f)
+                        .mainStatsArmor(5, 9, 7, 5, 2, 15)
+                        .mainStatsMelee(4, 1, 0.1f)
+                        .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                        .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
+                        .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
+                        .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+                );
+    		}
+    		else if(dragon.dragonType() == DragonType.ICE) {
+        		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
+                        .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        //main
+                        .mainStatsCommon(500, 4, 12, 8, 0.9f)
+                        .mainStatsArmor(5, 9, 7, 5, 2, 15)
+                        .mainStatsMelee(4, 1, 0.1f)
+                        .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                        .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
+                        .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
+                        .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+                );
+    		}	
     	}
         
-    	Map<IceAndFireMaterials, Item> fireDragonScales = Map.of(
-    			IceAndFireMaterials.DRAGONSCALES_RED, IafItems.DRAGONSCALES_RED.get(),
-    			IceAndFireMaterials.DRAGONSCALES_EMERALD, IafItems.DRAGONSCALES_GREEN.get(),
-    			IceAndFireMaterials.DRAGONSCALES_BRONZE, IafItems.DRAGONSCALES_BRONZE.get(),
-    			IceAndFireMaterials.DRAGONSCALES_GREY, IafItems.DRAGONSCALES_GRAY.get()
-    			);
-    	
-    	for(IceAndFireMaterials material : fireDragonScales.keySet()) {
-    		ret.add(MaterialBuilder.simple(material.getMaterial())
-                    .crafting(fireDragonScales.get(material), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                    .display(getDisplayName("Fire Dragon Scale"),0xce4646, TextureType.LOW_CONTRAST)
-                    //main
-                    .mainStatsCommon(500, 4, 12, 8, 0.9f)
-                    .mainStatsArmor(5, 9, 7, 5, 2, 15)
-                    .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
-                    .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.DRAGON_PROTECTION, 1)
-            );
-    	}
     
     }
     
@@ -256,7 +253,9 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .display(getDisplayName("Frost Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
-                .mainStatsArmor(7, 12, 9, 6, 1, 10)
+                .mainStatsArmor(5, 8, 6, 5, 2, 10)
+                .mainStatsMelee(1, 0, 0.1f)
+                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
@@ -267,7 +266,9 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .display(getDisplayName("Forest Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
-                .mainStatsArmor(7, 12, 9, 6, 1, 10)
+                .mainStatsArmor(5, 8, 6, 5, 2, 10)
+                .mainStatsMelee(1, 0, 0.1f)
+                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
@@ -278,7 +279,9 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .display(getDisplayName("Mountain Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
-                .mainStatsArmor(3, 7, 5, 2, 1, 10)
+                .mainStatsArmor(5, 8, 6, 5, 2, 10)
+                .mainStatsMelee(1, 0, 0.1f)
+                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
@@ -303,7 +306,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
-            	//TODO: Fire Blood effect : ignite and knockback? via custom trait
+            	.trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.BLAZING_BLOOD, 1)
         );
     	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.ICE_DRAGON_BLOOD.getMaterial())
@@ -312,7 +315,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
-                //TODO: Ice Blood effect : freeze?
+                .trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.FREEZING_BLOOD, 1)
         );
     	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.LIGHTNING_DRAGON_BLOOD.getMaterial())
@@ -321,7 +324,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
-                //TODO: Lightning Blood effect : lightning?
+                .trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.VOLTAIC_BLOOD, 1)
         );
     	
     }
@@ -335,17 +338,54 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                     //main
                     .mainStatsCommon(300, 4, 12, 8, 0.9f)
                     .mainStatsArmor(4, 8, 7, 4, 2.5f, 12.5f)
+                    .mainStatsMelee(4, 1, 0.1f)
+                    .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
                     .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                     .trait(PartTypes.MAIN, Const.Traits.AQUATIC, 2)
             );
     	}
     }
     
-    private void addDeathWormChitin(Collection<MaterialBuilder<?>> ret) {
-    	return;
+    private void addDeathWormChitin(Collection<MaterialBuilder<?>> ret) {	
+    	ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_YELLOW.getMaterial())
+                .crafting(IafItems.DEATH_WORM_CHITIN_YELLOW.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                .display(getDisplayName("Yellow Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                //main
+                .mainStatsCommon(220, 4, 12, 8, 0.9f)
+                .mainStatsArmor(7, 12, 9, 6, 1, 10)
+                .mainStatsMelee(4, 1, 0.1f)
+                .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                .trait(PartTypes.MAIN, Const.Traits.BRITTLE, 1)
+                .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+        );
+    	
+        ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_WHITE.getMaterial())
+                .crafting(IafItems.DEATH_WORM_CHITIN_WHITE.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                .display(getDisplayName("White Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                //main
+                .mainStatsCommon(220, 4, 12, 8, 0.9f)
+                .mainStatsArmor(7, 12, 9, 6, 1, 10)
+                .mainStatsMelee(4, 1, 0.1f)
+                .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                .trait(PartTypes.MAIN, Const.Traits.BRITTLE, 1)
+                .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+        );
+    	
+        ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_RED.getMaterial())
+                .crafting(IafItems.DEATH_WORM_CHITIN_RED.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                .display(getDisplayName("Red Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                //main
+                .mainStatsCommon(220, 4, 12, 8, 0.9f)
+                .mainStatsArmor(3, 7, 5, 2, 1.5f, 12)
+                .mainStatsMelee(4, 1, 0.1f)
+                .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
+                .trait(PartTypes.MAIN, Const.Traits.BRITTLE, 1)
+                .trait(PartTypes.MAIN, Const.Traits.FIREPROOF, 1)
+        );
     }
     
     private void addMyrmexChitin(Collection<MaterialBuilder<?>> ret) {
+    	//myrmex removed from IafCE pending rework 
     	return;
     }
     private void addStymphalian(Collection<MaterialBuilder<?>> ret) {
@@ -356,6 +396,34 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 
                 .trait(PartTypes.FLETCHING, net.cwright21.dragongear.util.Const.Traits.STYMPHALIAN, 1)
         );
+    }
+    
+    private void addPixieWing(Collection<MaterialBuilder<?>> ret) {
+    	ret.add(MaterialBuilder.simple(IceAndFireMaterials.PIXIE_WINGS.getMaterial())
+                .crafting(IafItems.PIXIE_WINGS.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
+                .display(getDisplayName("Pixie Wing"),0xce4646, TextureType.LOW_CONTRAST)
+                
+                .stat(PartTypes.FLETCHING, GearProperties.MAGIC_DAMAGE, 2f, NumberProperty.Operation.ADD)
+                .trait(PartTypes.FLETCHING, Const.Traits.CURSED, 1)
+                
+            	//TODO: Pixie Wing arrows hit with levitate
+        );
+    }
+    
+    private void addFangs(Collection<MaterialBuilder<?>> ret) {
+    	ret.add(MaterialBuilder.simple(IceAndFireMaterials.HYRDRA_FANG.getMaterial())
+                .crafting(IafItems.HYDRA_FANG.get(), MaterialCategories.ORGANIC, MaterialCategories.ENDGAME )
+                //.noProperties(PartTypes.MAIN)
+                .display(getDisplayName("Hydra Fang"),0xce4646, TextureType.LOW_CONTRAST)
+                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.PROJECTILE_SPEED, 1f)
+                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.RANGED_DAMAGE, 1f)
+                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.DRAW_SPEED, 1f)
+                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.PROJECTILE_ACCURACY, 1f)
+                .trait(PartTypes.MAIN, Const.Traits.VENOM, 1)
+                
+            	//TODO: add lifesteal?
+        );
+    	
     }
     
     //this is the more correct way, but this seems to also include [] in the name

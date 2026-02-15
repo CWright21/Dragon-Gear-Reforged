@@ -18,7 +18,6 @@ public class ProjectileEvent {
 	
 	public static void onArrowLoose(EntityJoinLevelEvent event) {
 		Entity entity = event.getEntity();
-		DragonGear.LOGGER.info("Entity Joined event");
 	    if (!(entity instanceof GearArrowEntity arrow)) {
 	        return;
 	    }

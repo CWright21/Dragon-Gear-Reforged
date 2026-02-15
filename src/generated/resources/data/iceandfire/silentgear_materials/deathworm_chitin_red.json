@@ -9,32 +9,32 @@
     ],
     "gear_type_blacklist": [],
     "ingredient": {
-      "item": "iceandfire:sea_serpent_scales_bronze"
+      "item": "iceandfire:deathworm_chitin_red"
     },
     "part_substitutes": {}
   },
   "display": {
-    "color": "#FFFFAA00",
+    "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "bronzeSea Serpent Scale",
+    "name": "Red Deathworm Chitin",
     "name_prefix": ""
   },
   "properties": {
     "silentgear:main": {
-      "armor": 23.0,
-      "armor/boots": 4.0,
-      "armor/chestplate": 8.0,
-      "armor/helmet": 4.0,
-      "armor/leggings": 7.0,
+      "armor": 17.0,
+      "armor/boots": 2.0,
+      "armor/chestplate": 7.0,
+      "armor/helmet": 3.0,
+      "armor/leggings": 5.0,
       "armor_durability": 4.0,
-      "armor_toughness": 2.5,
+      "armor_toughness": 1.5,
       "attack_damage": 4.0,
       "attack_speed": 0.1,
       "charging_value": 0.9,
       "draw_speed": 0.0,
-      "durability": 300.0,
+      "durability": 220.0,
       "enchantment_value": 12.0,
-      "magic_armor": 12.5,
+      "magic_armor": 12.0,
       "magic_damage": 1.0,
       "projectile_accuracy": 1.1,
       "projectile_speed": 0.9,
@@ -44,12 +44,12 @@
         {
           "conditions": [],
           "level": 1,
-          "trait": "silentgear:flexible"
+          "trait": "silentgear:brittle"
         },
         {
           "conditions": [],
-          "level": 2,
-          "trait": "silentgear:aquatic"
+          "level": 1,
+          "trait": "silentgear:fireproof"
         }
       ]
     }

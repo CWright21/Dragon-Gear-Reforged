@@ -24,7 +24,14 @@
       "magic_damage": {
         "operation": "ADD",
         "value": 8.0
-      }
+      },
+      "traits": [
+        {
+          "conditions": [],
+          "level": 1,
+          "trait": "dragongear:voltaic_blood"
+        }
+      ]
     }
   }
 }

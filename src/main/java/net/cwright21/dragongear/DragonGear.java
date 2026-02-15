@@ -9,6 +9,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 import org.slf4j.Logger;
@@ -28,9 +29,11 @@ public class DragonGear {
         var gen = event.getGenerator();
         gen.addProvider(true, new DragonMaterialsProvider(gen));
         gen.addProvider(true, new CustomTraitsProvider(gen));
-        event.createProvider(CustomLanguageProvider::new);
+        //event.createProvider(CustomLanguageProvider::new);
         
         LivingEntityEvents.DAMAGE.register(LivingEntityEvent::applyCustomProtectionTraits);
+        //LivingEntityEvents.DAMAGE.register(LivingEntityEvent::applyDragonCoatingEffect);
+        
     }
     
     @SubscribeEvent
@@ -42,5 +45,11 @@ public class DragonGear {
     @SubscribeEvent
     public static void onEntityTick(EntityTickEvent.Post event) {
     	ProjectileEvent.onArrowTick(event);
+    }
+    
+    @SubscribeEvent
+    public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
+    	LivingEntityEvent.applyDragonCoatingEffect(event);
+    	LivingEntityEvent.applyLifestealEffects(event);
     }
 }

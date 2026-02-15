@@ -2,13 +2,12 @@
   "itemGroup.dragongear": "Example Mod Tab",
   "block.dragongear.example_block": "Example Block",
   "item.dragongear.example_item": "Example Item",
-
   "dragongear.configuration.title": "Dragon Gear Configs",
   "dragongear.configuration.section.dragongear.common.toml": "Dragon Gear Configs",
   "dragongear.configuration.section.dragongear.common.toml.title": "Dragon Gear Configs",
   "dragongear.configuration.items": "Item List",
-  "dragongear.configuration.logDirtBlock": "Log Dirt Block",
-  "dragongear.configuration.magicNumberIntroduction": "Magic Number Text",
-  "dragongear.configuration.magicNumber": "Magic Number"
-  "trait.dragongear.thick_hide": "Translation"
+  "trait.dragongear.thick_hide": "Thick Hide",
+  "trait.dragongear.blazing_blood": "Blazing Blood",
+  "trait.dragongear.freezing_blood": "Freezing Blood",
+  "trait.dragongear.voltaic_blood": "Voltaic Blood"
 }

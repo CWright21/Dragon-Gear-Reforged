@@ -9,40 +9,47 @@
     ],
     "gear_type_blacklist": [],
     "ingredient": {
-      "item": "iceandfire:dragonscales_blue"
+      "item": "iceandfire:deathworm_chitin_yellow"
     },
     "part_substitutes": {}
   },
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Ice Dragon Scale",
+    "name": "Yellow Deathworm Chitin",
     "name_prefix": ""
   },
   "properties": {
     "silentgear:main": {
-      "armor": 26.0,
-      "armor/boots": 5.0,
-      "armor/chestplate": 9.0,
-      "armor/helmet": 5.0,
-      "armor/leggings": 7.0,
+      "armor": 34.0,
+      "armor/boots": 6.0,
+      "armor/chestplate": 12.0,
+      "armor/helmet": 7.0,
+      "armor/leggings": 9.0,
       "armor_durability": 4.0,
-      "armor_toughness": 2.0,
+      "armor_toughness": 1.0,
+      "attack_damage": 4.0,
+      "attack_speed": 0.1,
       "charging_value": 0.9,
-      "durability": 500.0,
+      "draw_speed": 0.0,
+      "durability": 220.0,
       "enchantment_value": 12.0,
-      "magic_armor": 15.0,
+      "magic_armor": 10.0,
+      "magic_damage": 1.0,
+      "projectile_accuracy": 1.1,
+      "projectile_speed": 0.9,
+      "ranged_damage": 1.1,
       "rarity": 8.0,
       "traits": [
         {
           "conditions": [],
           "level": 1,
-          "trait": "silentgear:flexible"
+          "trait": "silentgear:brittle"
         },
         {
           "conditions": [],
           "level": 1,
-          "trait": "dragongear:dragon_protection"
+          "trait": "silentgear:fireproof"
         }
       ]
     }
