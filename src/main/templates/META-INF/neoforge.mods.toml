@@ -18,7 +18,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://github.com/CWright21/ATM-Dragon-Gear"
+displayURL="https://github.com/CWright21/Dragon-Gear-Reforged"
 
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="examplemod.png" #optional

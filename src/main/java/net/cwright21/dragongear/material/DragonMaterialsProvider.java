@@ -122,7 +122,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	// Dragon Bone
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.DRAGON_BONE.getMaterial())
                 .crafting(IafItems.DRAGON_BONE.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Dragonbone"),0xFCFBED, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xFCFBED, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(1660, 0, 10, 8, 1f)
                 .mainStatsHarvest(9)
@@ -136,9 +136,9 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
         // Witherbone
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.WITHER_BONE.getMaterial())
                 .crafting(IafItems.WITHERBONE.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED)
-                .display(getDisplayName("Witherbone"),0x0e0c0f, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0x0e0c0f, TextureType.LOW_CONTRAST)
                 //rod
-                .stat(PartTypes.ROD, GearProperties.ATTACK_DAMAGE, 0.2f, NumberProperty.Operation.MULTIPLY_TOTAL)
+                .stat(PartTypes.ROD, GearProperties.ATTACK_DAMAGE, 0.35f, NumberProperty.Operation.MULTIPLY_TOTAL)
                 .trait(PartTypes.ROD, Const.Traits.BRITTLE, 2)
         );
     
@@ -149,7 +149,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	// lightning (more magic damage)
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.LIGHTNING_DRAGONSTEEL.getMaterial())
                 .crafting(IafItems.DRAGONSTEEL_LIGHTNING_INGOT.get(), MaterialCategories.METAL, MaterialCategories.ENDGAME )
-                .display(getDisplayName("Lightning Dragonsteel"),0x3e2547, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0x3e2547, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(8000, 4, 20, 16, 1.1f)
                 .mainStatsHarvest(12)
@@ -165,7 +165,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
         // ice
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.ICE_DRAGONSTEEL.getMaterial())
                 .crafting(IafItems.DRAGONSTEEL_ICE_INGOT.get(), MaterialCategories.METAL, MaterialCategories.ENDGAME )
-                .display(getDisplayName("Ice Dragonsteel"),0x73c9e2, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0x73c9e2, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(8000, 4, 20, 16, 1.1f)
                 .mainStatsHarvest(12)
@@ -181,7 +181,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
         // fire
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.FIRE_DRAGONSTEEL.getMaterial())
                 .crafting(IafItems.DRAGONSTEEL_FIRE_INGOT.get(), MaterialCategories.METAL, MaterialCategories.ENDGAME )
-                .display(getDisplayName("Fire Dragonsteel"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(8000, 4, 20, 13, 1.1f)
                 .mainStatsHarvest(12)
@@ -203,7 +203,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     		if(dragon.dragonType() == DragonType.LIGHTNING) {
         		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
                         .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        .displayWithDefaultName(dragon.color().getColor(), TextureType.LOW_CONTRAST)
                         //main
                         .mainStatsCommon(500, 4, 12, 8, 0.9f)
                         .mainStatsArmor(5, 9, 7, 5, 1.5f, 20)
@@ -217,7 +217,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     		else if(dragon.dragonType() == DragonType.FIRE) {
         		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
                         .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        .displayWithDefaultName(dragon.color().getColor(), TextureType.LOW_CONTRAST)
                         //main
                         .mainStatsCommon(500, 4, 12, 8, 0.9f)
                         .mainStatsArmor(5, 9, 7, 5, 2, 15)
@@ -231,7 +231,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     		else if(dragon.dragonType() == DragonType.ICE) {
         		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.DRAGON_SCALE, dragon.name()))
                         .crafting(dragon.getScaleItem(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                        .display(getDisplayName(dragon.name() + "Dragon Scale"),dragon.color().getColor(), TextureType.LOW_CONTRAST)
+                        .displayWithDefaultName(dragon.color().getColor(), TextureType.LOW_CONTRAST)
                         //main
                         .mainStatsCommon(500, 4, 12, 8, 0.9f)
                         .mainStatsArmor(5, 9, 7, 5, 2, 15)
@@ -250,41 +250,38 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     private void addTrollHides(Collection<MaterialBuilder<?>> ret) {
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.TROLL_LEATHER_FROST.getMaterial())
                 .crafting(TrollType.FROST.leather.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Frost Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
                 .mainStatsArmor(5, 8, 6, 5, 2, 10)
-                .mainStatsMelee(1, 0, 0.1f)
-                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
+                .trait(PartTypes.LINING, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
         );
     	
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.TROLL_LEATHER_FOREST.getMaterial())
                 .crafting(TrollType.FOREST.leather.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Forest Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
                 .mainStatsArmor(5, 8, 6, 5, 2, 10)
-                .mainStatsMelee(1, 0, 0.1f)
-                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
+                .trait(PartTypes.LINING, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
         );
     	
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.TROLL_LEATHER_MOUNTAIN.getMaterial())
                 .crafting(TrollType.MOUNTAIN.leather.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Mountain Troll Leather"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(300, 4, 12, 8, 0.9f)
                 .mainStatsArmor(5, 8, 6, 5, 2, 10)
-                .mainStatsMelee(1, 0, 0.1f)
-                .mainStatsRanged(0.1f, -0.5f, 1.2f, 0.8f)
                 .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                 .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
                 .trait(PartTypes.GRIP, Const.Traits.STURDY, 1)
+                .trait(PartTypes.LINING, net.cwright21.dragongear.util.Const.Traits.THICK_HIDE, 1)
         );
     	
     }
@@ -292,7 +289,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     private void addShinyScales(Collection<MaterialBuilder<?>> ret) {
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.SHINY_SCALES.getMaterial())
                 .crafting(IafItems.SHINY_SCALES.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Shiny Scale"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.LINING, GearProperties.ENCHANTMENT_VALUE, 2f)
                 .trait(PartTypes.LINING, Const.Traits.AQUATIC, 1)
@@ -302,7 +299,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     private void addDragonBloodCoatings(Collection<MaterialBuilder<?>> ret) {
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.FIRE_DRAGON_BLOOD.getMaterial())
                 .crafting(IafItems.FIRE_DRAGON_BLOOD.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Fire Dragon Blood"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
@@ -311,7 +308,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.ICE_DRAGON_BLOOD.getMaterial())
                 .crafting(IafItems.ICE_DRAGON_BLOOD.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Ice Dragon Blood"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
@@ -320,7 +317,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.LIGHTNING_DRAGON_BLOOD.getMaterial())
                 .crafting(IafItems.LIGHTNING_DRAGON_BLOOD.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Lightning Dragon Blood"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
                 
@@ -334,7 +331,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	for(SeaSerpent serpent : seaSerpents) {
     		ret.add(MaterialBuilder.simple(IceAndFireMaterials.getColorMaterialInstance(IceAndFireMaterials.SEA_SERPENT_SCALES, serpent.getName()))
                     .crafting(serpent.scale.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                    .display(getDisplayName(serpent.getName() + "Sea Serpent Scale"),serpent.getColor().getColor(), TextureType.LOW_CONTRAST)
+                    .displayWithDefaultName(serpent.getColor().getColor(), TextureType.LOW_CONTRAST)
                     //main
                     .mainStatsCommon(300, 4, 12, 8, 0.9f)
                     .mainStatsArmor(4, 8, 7, 4, 2.5f, 12.5f)
@@ -349,7 +346,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     private void addDeathWormChitin(Collection<MaterialBuilder<?>> ret) {	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_YELLOW.getMaterial())
                 .crafting(IafItems.DEATH_WORM_CHITIN_YELLOW.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Yellow Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(220, 4, 12, 8, 0.9f)
                 .mainStatsArmor(7, 12, 9, 6, 1, 10)
@@ -361,7 +358,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_WHITE.getMaterial())
                 .crafting(IafItems.DEATH_WORM_CHITIN_WHITE.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("White Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(220, 4, 12, 8, 0.9f)
                 .mainStatsArmor(7, 12, 9, 6, 1, 10)
@@ -373,7 +370,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	
         ret.add(MaterialBuilder.simple(IceAndFireMaterials.DEATH_WORM_CHITIN_RED.getMaterial())
                 .crafting(IafItems.DEATH_WORM_CHITIN_RED.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Red Deathworm Chitin"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 //main
                 .mainStatsCommon(220, 4, 12, 8, 0.9f)
                 .mainStatsArmor(3, 7, 5, 2, 1.5f, 12)
@@ -392,7 +389,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.STYMPHALIAN_FEATHER.getMaterial())
                 .crafting(IafItems.STYMPHALIAN_BIRD_FEATHER.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Stymphalian Feather"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .trait(PartTypes.FLETCHING, net.cwright21.dragongear.util.Const.Traits.STYMPHALIAN, 1)
         );
@@ -401,7 +398,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     private void addPixieWing(Collection<MaterialBuilder<?>> ret) {
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.PIXIE_WINGS.getMaterial())
                 .crafting(IafItems.PIXIE_WINGS.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
-                .display(getDisplayName("Pixie Wing"),0xce4646, TextureType.LOW_CONTRAST)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.FLETCHING, GearProperties.MAGIC_DAMAGE, 2f, NumberProperty.Operation.ADD)
                 .trait(PartTypes.FLETCHING, Const.Traits.CURSED, 1)
@@ -414,45 +411,14 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
     	ret.add(MaterialBuilder.simple(IceAndFireMaterials.HYRDRA_FANG.getMaterial())
                 .crafting(IafItems.HYDRA_FANG.get(), MaterialCategories.ORGANIC, MaterialCategories.ENDGAME )
                 //.noProperties(PartTypes.MAIN)
-                .display(getDisplayName("Hydra Fang"),0xce4646, TextureType.LOW_CONTRAST)
-                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.PROJECTILE_SPEED, 1f)
-                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.RANGED_DAMAGE, 1f)
-                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.DRAW_SPEED, 1f)
-                .stat(PartGearKey.ofMain(GearTypes.ARROW), GearProperties.PROJECTILE_ACCURACY, 1f)
+                .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
+                .mainStatsRanged(0.9f, 1.1f, 1.2f, 1.0f)
                 .trait(PartTypes.MAIN, Const.Traits.VENOM, 1)
-                
-            	//TODO: add lifesteal?
+                .trait(PartTypes.MAIN, net.cwright21.dragongear.util.Const.Traits.LIFESTEAL, 2)
+                .trait(PartTypes.TIP, Const.Traits.VENOM, 1)
+                .trait(PartTypes.TIP, net.cwright21.dragongear.util.Const.Traits.LIFESTEAL, 1)
+
         );
-    	
-    }
-    
-    //this is the more correct way, but this seems to also include [] in the name
-    @SuppressWarnings("unused")
-	private Component getDisplayName(Item item) {
-    	return item.getDefaultInstance().getDisplayName();
-    }
-    
-    //this is a weird and bad way to get an item name, especially since it wont translate....
-    private Component getDisplayName(String text) {
-    	Message m = new CustomMessage(text);
-    	return ComponentUtils.fromMessage(m);
-    }
-    
-    //I do not know how to remove the brackets from the item name so this is what I came up with
-    // Generate a new component with the text we want
-    // Using message since message is a simple interface that has a Component method
-    public class CustomMessage implements Message{
-    	private String text;
-    	
-    	public CustomMessage(String text) {
-    		super();
-    		this.text = text;
-    	}
-    	
-		@Override
-		public String getString() {
-			return this.text;
-		}
     	
     }
     

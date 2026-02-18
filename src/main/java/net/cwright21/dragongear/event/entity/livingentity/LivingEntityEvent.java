@@ -136,19 +136,17 @@ public class LivingEntityEvent {
                 : ItemStack.EMPTY;
 
         //DragonGear.LOGGER.info("sourceEntity.getMainHandItem(): " + weapon.toString());
-        if (attacker instanceof Player attackingPlayer && weapon.getItem() instanceof GearTool) {
+        if (attacker instanceof LivingEntity attackerLivingEntity && weapon.getItem() instanceof GearTool) {
         	if(source.getDirectEntity() instanceof AbstractArrow projectile) {
-        		if(projectile.getPickupItem() != null) {
-        			int lifestealLevel = TraitHelper.getTraitLevel(projectile.getPickupItem(),  Const.Traits.LIFESTEAL);
-        			if( lifestealLevel >= 1 ) {
-        				((LivingEntity) attacker).heal(event.getAmount() * (lifestealLevel * 0.05f));
-        			}
+        		if(projectile.getPersistentData().getByte("lifestealDGR") > 0) {
+        			int lifestealLevel = projectile.getPersistentData().getByte("lifestealDGR");
+    				attackerLivingEntity.heal(event.getAmount() * (lifestealLevel * 0.05f));
         		}
         	}
         	else{
         		int lifestealLevel = TraitHelper.getTraitLevel(weapon,  Const.Traits.LIFESTEAL);
     			if( lifestealLevel >= 1 ) {
-    				((LivingEntity) attacker).heal(event.getAmount() * (lifestealLevel * 0.05f));
+    				attackerLivingEntity.heal(event.getAmount() * (lifestealLevel * 0.05f));
     			}
         	}
         }
