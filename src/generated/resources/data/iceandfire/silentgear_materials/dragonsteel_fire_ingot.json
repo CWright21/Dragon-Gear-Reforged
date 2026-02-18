@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Fire Dragonsteel",
+    "name": {
+      "translate": "material.iceandfire.dragonsteel_fire_ingot"
+    },
     "name_prefix": ""
   },
   "properties": {

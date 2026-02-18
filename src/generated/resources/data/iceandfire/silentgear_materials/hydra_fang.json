@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Hydra Fang",
+    "name": {
+      "translate": "material.iceandfire.hydra_fang"
+    },
     "name_prefix": ""
   },
   "properties": {
@@ -30,6 +32,11 @@
           "conditions": [],
           "level": 1,
           "trait": "silentgear:venom"
+        },
+        {
+          "conditions": [],
+          "level": 1,
+          "trait": "dragongear:lifesteal"
         }
       ]
     }

@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "White Deathworm Chitin",
+    "name": {
+      "translate": "material.iceandfire.deathworm_chitin_white"
+    },
     "name_prefix": ""
   },
   "properties": {

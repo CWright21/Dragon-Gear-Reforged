@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF55FFFF",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "tealSea Serpent Scale",
+    "name": {
+      "translate": "material.iceandfire.sea_serpent_scale_teal"
+    },
     "name_prefix": ""
   },
   "properties": {

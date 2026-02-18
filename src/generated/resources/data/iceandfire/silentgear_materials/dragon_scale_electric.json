@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF0000AA",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "electricDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_electric"
+    },
     "name_prefix": ""
   },
   "properties": {

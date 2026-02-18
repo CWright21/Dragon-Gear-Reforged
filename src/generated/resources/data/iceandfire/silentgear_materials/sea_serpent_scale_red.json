@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFAA0000",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "redSea Serpent Scale",
+    "name": {
+      "translate": "material.iceandfire.sea_serpent_scale_red"
+    },
     "name_prefix": ""
   },
   "properties": {

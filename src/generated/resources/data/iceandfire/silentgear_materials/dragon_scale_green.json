@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF00AA00",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "greenDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_green"
+    },
     "name_prefix": ""
   },
   "properties": {

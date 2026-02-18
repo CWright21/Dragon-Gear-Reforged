@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF5555FF",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "sapphireDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_sapphire"
+    },
     "name_prefix": ""
   },
   "properties": {

@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Fire Dragon Blood",
+    "name": {
+      "translate": "material.iceandfire.fire_dragon_blood"
+    },
     "name_prefix": ""
   },
   "properties": {

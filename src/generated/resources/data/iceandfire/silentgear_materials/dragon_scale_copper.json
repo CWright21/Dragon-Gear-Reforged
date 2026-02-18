@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFFFAA00",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "copperDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_copper"
+    },
     "name_prefix": ""
   },
   "properties": {

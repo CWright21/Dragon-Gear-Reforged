@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFFCFBED",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Dragonbone",
+    "name": {
+      "translate": "material.iceandfire.dragonbone"
+    },
     "name_prefix": ""
   },
   "properties": {

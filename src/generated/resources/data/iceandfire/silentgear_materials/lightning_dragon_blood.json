@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Lightning Dragon Blood",
+    "name": {
+      "translate": "material.iceandfire.lightning_dragon_blood"
+    },
     "name_prefix": ""
   },
   "properties": {

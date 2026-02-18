@@ -16,14 +16,16 @@
   "display": {
     "color": "#FF0E0C0F",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Witherbone",
+    "name": {
+      "translate": "material.iceandfire.witherbone"
+    },
     "name_prefix": ""
   },
   "properties": {
     "silentgear:rod": {
       "attack_damage": {
         "operation": "MULTIPLY_TOTAL",
-        "value": 0.2
+        "value": 0.35
       },
       "traits": [
         {

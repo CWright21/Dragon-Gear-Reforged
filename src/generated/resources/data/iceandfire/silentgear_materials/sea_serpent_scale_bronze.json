@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFFFAA00",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "bronzeSea Serpent Scale",
+    "name": {
+      "translate": "material.iceandfire.sea_serpent_scale_bronze"
+    },
     "name_prefix": ""
   },
   "properties": {

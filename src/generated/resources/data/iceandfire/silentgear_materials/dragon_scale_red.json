@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFAA0000",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "redDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_red"
+    },
     "name_prefix": ""
   },
   "properties": {

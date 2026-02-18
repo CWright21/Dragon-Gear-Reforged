@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF55FFFF",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "blueDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_blue"
+    },
     "name_prefix": ""
   },
   "properties": {

@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFFF55FF",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "amethystDragon Scale",
+    "name": {
+      "translate": "material.iceandfire.dragon_scale_amethyst"
+    },
     "name_prefix": ""
   },
   "properties": {

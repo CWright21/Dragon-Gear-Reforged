@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Frost Troll Leather",
+    "name": {
+      "translate": "material.iceandfire.troll_leather_frost"
+    },
     "name_prefix": ""
   },
   "properties": {
@@ -29,6 +31,15 @@
         }
       ]
     },
+    "silentgear:lining": {
+      "traits": [
+        {
+          "conditions": [],
+          "level": 1,
+          "trait": "dragongear:thick_hide"
+        }
+      ]
+    },
     "silentgear:main": {
       "armor": 24.0,
       "armor/boots": 5.0,
@@ -37,16 +48,10 @@
       "armor/leggings": 6.0,
       "armor_durability": 4.0,
       "armor_toughness": 2.0,
-      "attack_damage": 1.0,
-      "attack_speed": 0.1,
       "charging_value": 0.9,
-      "draw_speed": -0.5,
       "durability": 300.0,
       "enchantment_value": 12.0,
       "magic_armor": 10.0,
-      "projectile_accuracy": 0.8,
-      "projectile_speed": 1.2,
-      "ranged_damage": 0.1,
       "rarity": 8.0,
       "traits": [
         {

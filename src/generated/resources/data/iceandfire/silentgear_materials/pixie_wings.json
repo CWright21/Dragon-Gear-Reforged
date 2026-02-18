@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Pixie Wing",
+    "name": {
+      "translate": "material.iceandfire.pixie_wings"
+    },
     "name_prefix": ""
   },
   "properties": {

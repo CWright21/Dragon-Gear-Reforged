@@ -16,7 +16,9 @@
   "display": {
     "color": "#FF3E2547",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Lightning Dragonsteel",
+    "name": {
+      "translate": "material.iceandfire.dragonsteel_lightning_ingot"
+    },
     "name_prefix": ""
   },
   "properties": {

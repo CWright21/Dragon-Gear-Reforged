@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Yellow Deathworm Chitin",
+    "name": {
+      "translate": "material.iceandfire.deathworm_chitin_yellow"
+    },
     "name_prefix": ""
   },
   "properties": {

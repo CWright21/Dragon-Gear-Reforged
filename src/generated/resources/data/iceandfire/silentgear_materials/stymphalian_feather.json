@@ -16,7 +16,9 @@
   "display": {
     "color": "#FFCE4646",
     "main_texture_type": "LOW_CONTRAST",
-    "name": "Stymphalian Feather",
+    "name": {
+      "translate": "material.iceandfire.stymphalian_feather"
+    },
     "name_prefix": ""
   },
   "properties": {
