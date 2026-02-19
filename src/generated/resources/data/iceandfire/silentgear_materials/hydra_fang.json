@@ -23,10 +23,24 @@
   },
   "properties": {
     "silentgear:main": {
-      "draw_speed/arrow": 1.0,
-      "projectile_accuracy/arrow": 1.0,
-      "projectile_speed/arrow": 1.0,
-      "ranged_damage/arrow": 1.0,
+      "draw_speed": 1.1,
+      "projectile_accuracy": 1.0,
+      "projectile_speed": 1.2,
+      "ranged_damage": 0.9,
+      "traits": [
+        {
+          "conditions": [],
+          "level": 1,
+          "trait": "silentgear:venom"
+        },
+        {
+          "conditions": [],
+          "level": 2,
+          "trait": "dragongear:lifesteal"
+        }
+      ]
+    },
+    "silentgear:tip": {
       "traits": [
         {
           "conditions": [],

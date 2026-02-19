@@ -302,7 +302,6 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
-                
             	.trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.BLAZING_BLOOD, 1)
         );
     	
@@ -311,7 +310,6 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
-                
                 .trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.FREEZING_BLOOD, 1)
         );
     	
@@ -320,7 +318,6 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
                 .stat(PartTypes.COATING, GearProperties.MAGIC_DAMAGE, 8f, NumberProperty.Operation.ADD)
-                
                 .trait(PartTypes.COATING, net.cwright21.dragongear.util.Const.Traits.VOLTAIC_BLOOD, 1)
         );
     	
@@ -336,7 +333,6 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                     .mainStatsCommon(300, 4, 12, 8, 0.9f)
                     .mainStatsArmor(4, 8, 7, 4, 2.5f, 12.5f)
                     .mainStatsMelee(4, 1, 0.1f)
-                    .mainStatsRanged(1.1f, 0f, 0.9f, 1.1f)
                     .trait(PartTypes.MAIN, Const.Traits.FLEXIBLE, 1)
                     .trait(PartTypes.MAIN, Const.Traits.AQUATIC, 2)
             );
@@ -391,6 +387,7 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .crafting(IafItems.STYMPHALIAN_BIRD_FEATHER.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
                 .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
+                .stat(PartTypes.FLETCHING, GearProperties.PROJECTILE_SPEED, 1.1f, NumberProperty.Operation.MULTIPLY_TOTAL)
                 .trait(PartTypes.FLETCHING, net.cwright21.dragongear.util.Const.Traits.STYMPHALIAN, 1)
         );
     }
@@ -400,10 +397,9 @@ public class DragonMaterialsProvider extends MaterialsProviderBase {
                 .crafting(IafItems.PIXIE_WINGS.get(), MaterialCategories.ORGANIC, MaterialCategories.ADVANCED )
                 .displayWithDefaultName(0xce4646, TextureType.LOW_CONTRAST)
                 
-                .stat(PartTypes.FLETCHING, GearProperties.MAGIC_DAMAGE, 2f, NumberProperty.Operation.ADD)
+                .stat(PartTypes.FLETCHING, GearProperties.PROJECTILE_ACCURACY, 1.1f, NumberProperty.Operation.MULTIPLY_TOTAL)
                 .trait(PartTypes.FLETCHING, Const.Traits.CURSED, 1)
-                
-            	//TODO: Pixie Wing arrows hit with levitate
+                .trait(PartTypes.FLETCHING, net.cwright21.dragongear.util.Const.Traits.LEVITATE, 2)
         );
     }
     

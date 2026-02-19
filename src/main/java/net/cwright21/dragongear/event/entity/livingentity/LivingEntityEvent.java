@@ -152,6 +152,33 @@ public class LivingEntityEvent {
         }
     }
 	
+	public static void applyPixieWingEffects(LivingIncomingDamageEvent event) {
+		LivingEntity target = event.getEntity();
+        if (target.level().isClientSide()) return;
+
+        DamageSource source = event.getSource();
+        @Nullable Entity attacker = source.getEntity();
+
+        ItemStack weapon = attacker instanceof LivingEntity attackingLivingEntity
+                ? attackingLivingEntity.getItemBySlot(EquipmentSlot.MAINHAND)
+                : ItemStack.EMPTY;
+        
+        if (attacker instanceof LivingEntity attackerLivingEntity && weapon.getItem() instanceof GearTool) {
+        	if(source.getDirectEntity() instanceof AbstractArrow projectile) {
+        		if(projectile.getPersistentData().getByte("pixieDGR") > 0) {
+        			int levitateLevel = projectile.getPersistentData().getByte("pixieDGR");
+    				target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 60, levitateLevel-1));
+        		}
+        	}
+        	else{
+        		int levitateLevel = TraitHelper.getTraitLevel(weapon,  Const.Traits.LEVITATE);
+    			if( levitateLevel >= 1 ) {
+    				target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 60, levitateLevel-1));
+    			}
+        	}
+        }
+	}
+	
 	
 
 	

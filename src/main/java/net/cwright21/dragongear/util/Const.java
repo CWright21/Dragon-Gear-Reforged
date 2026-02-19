@@ -15,6 +15,7 @@ public final class Const {
         public static final DataResource<Trait> FREEZING_BLOOD = DataResource.trait(modId("freezing_blood"));
         public static final DataResource<Trait> VOLTAIC_BLOOD = DataResource.trait(modId("voltaic_blood"));
         public static final DataResource<Trait> LIFESTEAL = DataResource.trait(modId("lifesteal"));
+        public static final DataResource<Trait> LEVITATE = DataResource.trait(modId("levitate"));
         //public static final DataResource<Trait> LIGHTNING_RESISTANT = DataResource.trait(modId("lightning_resistant"));
 	}
 	

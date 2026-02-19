@@ -23,6 +23,10 @@
   },
   "properties": {
     "silentgear:fletching": {
+      "projectile_speed": {
+        "operation": "MULTIPLY_TOTAL",
+        "value": 1.1
+      },
       "traits": [
         {
           "conditions": [],

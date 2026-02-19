@@ -23,15 +23,20 @@
   },
   "properties": {
     "silentgear:fletching": {
-      "magic_damage": {
-        "operation": "ADD",
-        "value": 2.0
+      "projectile_accuracy": {
+        "operation": "MULTIPLY_TOTAL",
+        "value": 1.1
       },
       "traits": [
         {
           "conditions": [],
           "level": 1,
           "trait": "silentgear:cursed"
+        },
+        {
+          "conditions": [],
+          "level": 2,
+          "trait": "dragongear:levitate"
         }
       ]
     }
